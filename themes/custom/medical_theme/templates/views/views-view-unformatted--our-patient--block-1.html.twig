@@ -1,0 +1,49 @@
+<section class="section-padding pb-0" id="reviews">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center mb-lg-5 mb-4">Our Patients</h2>
+
+        <div class="owl-carousel reviews-carousel">
+          <div class="owl-stage-outer">
+            <div class="owl-stage">
+
+              {% for row in rows %}
+                <div class="owl-item cloned">
+                  <div class="testimonial-item bg-black text-white p-4 rounded">
+
+                    {{ row.attributes }}
+
+                    <div class="stars mb-2">
+                      {{ row.content['field_rating'] }}
+                    </div>
+
+                    <p class="text-primary fw-bold">
+                      {{ row.content['field_heading'] }}
+                    </p>
+
+                    <p>
+                      {{ row.content['field_description'] }}
+                    </p>
+
+                    <div class="d-flex align-items-center mt-4">
+                      <div class="me-3 rounded-circle overflow-hidden" style="width: 50px; height: 50px;">
+                        {{ row.content['field_image'] }}
+                      </div>
+                      <div>
+                        <strong class="text-white">{{ row.content['field_name'] }}</strong><br>
+                        <small class="text-muted">{{ row.content['field_title'] }}</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

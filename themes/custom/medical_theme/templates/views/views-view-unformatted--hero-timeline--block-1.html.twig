@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Custom timeline layout using unformatted view.
+ *
+ * This file renders each row inside a styled timeline layout with a
+ * single title at the top.
+ *
+ * Variables:
+ * - attributes: HTML attributes for the view wrapper.
+ * - rows: An array of rendered rows. Each row contains:
+ *     - content: The rendered fields/content.
+ *     - attributes: HTML attributes for the row container.
+ */
+#}
+
+<section class="section-padding pb-0" id="timeline">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center mb-lg-5 mb-4">Our Timeline</h2>
+      <div class="timeline">
+        {% for row in rows %}
+        <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes {% if loop.index is even %}my-lg-5 my-4{% endif %}">
+          {{ row.content }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+

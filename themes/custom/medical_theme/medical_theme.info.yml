@@ -1,0 +1,29 @@
+name: 'Medical Theme'
+type: theme
+description: 'A custom Drupal 11 theme based on the Medic Care HTML template.'
+core_version_requirement: ^10 || ^11
+base theme:  false 
+
+# Optional: Package for Appearance admin grouping
+
+
+# Regions define what content areas your theme supports
+regions:
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  hero_banner: 'Hero Banner'
+  about_section: 'About Section'
+  timeline_section: 'Timeline Section'
+  our_patient: 'Our Patient Section'
+  secondary_menu: 'Secondary menu'
+  highlighted: 'Highlighted'
+  breadcrumb: 'Breadcrumb'
+  content: 'Content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: 'Footer'
+
+# Libraries to load globally
+libraries:
+  - medical_theme/global-styling
+

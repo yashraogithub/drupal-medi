@@ -1,0 +1,90 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- LEFT: Carousel -->
+      <div class="col-12">
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    {{- row.content -}}
+  </div>
+{% endfor %}
+
+
+</div></div></div>
+</section>
+{# 
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- LEFT: Carousel -->
+      <div class="col-md-7">
+        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            {% for row in rows %}
+              <div class="carousel-item {{ loop.first ? 'active' }}">
+                {{ row.content }}
+              </div>
+            {% endfor %}
+          </div>
+         
+        </div>
+      </div>
+
+      <!-- RIGHT: Static Content from first row only -->
+      {% set first = view.result[0] %}
+      <div class="col-md-5">
+        <div class="heroText d-flex flex-column justify-content-center bg-white p-4 rounded">
+          <h1 class="mb-2">
+            {{ first._entity.field_heading.value }}
+            <div class="animated-info">
+              {% for word in first._entity.field_animated_words.value|split(',') %}
+                <span class="animated-item">{{ word|trim }}</span>
+              {% endfor %}
+            </div>
+          </h1>
+
+          <p class="mb-4">{{ first._entity.field_paragraph_text.value }}</p>
+
+          <div class="heroLinks d-flex flex-wrap align-items-center">
+            <a class="custom-link me-4" href="{{ first._entity.field_button_link.uri.value|render }}">
+              {{ first._entity.field_button_text.value }}
+            </a>
+            <p class="contact-phone mb-0">
+              <i class="bi bi-phone"></i> {{ first._entity.field_phone_number.value }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section> #}

@@ -1,0 +1,4 @@
+name: medi
+recipe: drupal11
+config:
+  webroot: .
